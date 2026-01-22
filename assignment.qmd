@@ -487,9 +487,11 @@ After you have made a graph, write 1) a sentence or two about what you have lear
 ```{r}
 library(ggplot2)
 bison_plot = ggplot(data = bison2, aes(age, weight_kg),) + 
-  geom_point(aes(color= animal_sex))+
-  scale_color_manual(values = c("red", "blue") )+
-  geom_smooth(aes(color = animal_sex), method = "lm")
+  geom_point(aes(shape= animal_sex,
+                 fill= animal_sex))+
+  scale_fill_manual(values = c("red", "blue") )+
+  scale_shape_manual(values = c(21, 22)) +
+  geom_smooth(aes(fill = animal_sex), method = "lm")
             
              
 bison_plot
